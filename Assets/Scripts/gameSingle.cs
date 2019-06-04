@@ -854,6 +854,7 @@ public class gameSingle : MonoBehaviour
                     virt_check = 0;
                     counter_points = 0;
                     max_second_virtual_check = 0;
+
                     temp_virt = 0;
 
                     for (int i = 0; i < gameField.GetLength(0); i++)
@@ -878,9 +879,13 @@ public class gameSingle : MonoBehaviour
                                 }
 
                                 turnsAI.Add(new int[3] { i, j, (points_second + 9 - j) });
+
                                 Neutraling();
+
                                 virtualField[i, j] = "testing-second";
+
                                 virt_check = Checking_virtual(virtualField);
+
                                 turnsAI[counter_points][2] += virt_check;
 
                                 for (int q = 0; q < virtualField.GetLength(0); q++)
@@ -946,11 +951,8 @@ public class gameSingle : MonoBehaviour
                                             }
 
                                             Neutraling();
-
                                             virtualSecond[q, w] = "testing-second";
-
                                             temp_virt = 0;
-
                                             temp_virt = Checking_virtual(virtualSecond);
 
                                             if (temp_virt > max_second_virtual_check)
@@ -962,9 +964,7 @@ public class gameSingle : MonoBehaviour
                                 }
 
                                 Neutraling();
-
                                 turnsAI[counter_points][2] += max_second_virtual_check;
-
                                 counter_points++;
                             }
                         }
@@ -1127,25 +1127,16 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -1156,23 +1147,14 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -1186,23 +1168,14 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -1213,19 +1186,12 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second"))
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never"))
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
+                                        if (neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral")
+                                            )
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -1316,10 +1282,11 @@ public class gameSingle : MonoBehaviour
                     break;
 
                 case "H":
-                    
+
                     virt_check = 0;
                     counter_points = 0;
                     max_second_virtual_check = 0;
+
                     temp_virt = 0;
 
                     for (int i = 0; i < gameField.GetLength(0); i++)
@@ -1344,9 +1311,13 @@ public class gameSingle : MonoBehaviour
                                 }
 
                                 turnsAI.Add(new int[3] { i, j, (points_second + 9 - j) });
+
                                 Neutraling();
+
                                 virtualField[i, j] = "testing-second";
+
                                 virt_check = Checking_virtual(virtualField);
+
                                 turnsAI[counter_points][2] += virt_check;
 
                                 for (int q = 0; q < virtualField.GetLength(0); q++)
@@ -1412,11 +1383,8 @@ public class gameSingle : MonoBehaviour
                                             }
 
                                             Neutraling();
-
                                             virtualSecond[q, w] = "testing-second";
-
                                             temp_virt = 0;
-
                                             temp_virt = Checking_virtual(virtualSecond);
 
                                             if (temp_virt > max_second_virtual_check)
@@ -1428,9 +1396,7 @@ public class gameSingle : MonoBehaviour
                                 }
 
                                 Neutraling();
-
                                 turnsAI[counter_points][2] += max_second_virtual_check;
-
                                 counter_points++;
                             }
                         }
@@ -1582,7 +1548,6 @@ public class gameSingle : MonoBehaviour
                     }
                     while (test_before != test_after);
 
-
                     for (int i = 0; i < turnsAI.Count; i++)
                     {
                         lampa = 0;
@@ -1594,25 +1559,16 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -1623,23 +1579,14 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -1653,23 +1600,14 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -1680,19 +1618,12 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second"))
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never"))
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
+                                        if (neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral")
+                                            )
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -2060,25 +1991,16 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("never") ||                                            
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;                                            
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -2089,23 +2011,14 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0] + 1, turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }                                    
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -2119,23 +2032,14 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("second") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second")
+                                        if (neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") ||
+                                            neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("neutral") ||
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral")
                                             )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0] - 1, turnsAI[i][1] - 1].Equals("never") ||
-                                            !neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never")
-                                            )
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }                                    
                                     else if (turnsAI[i][1] == 0)
                                     {
@@ -2146,19 +2050,12 @@ public class gameSingle : MonoBehaviour
                                 {
                                     if (turnsAI[i][1] > 0)
                                     {
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("second"))
-                                        {
-                                            lampa++;
-                                        }
-                                        if (!neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("never"))
-                                        {
-                                            lampa++;
-                                        }
-                                        if (lampa == 2)
+                                        if (neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("first") || 
+                                            neverField[turnsAI[i][0], turnsAI[i][1] - 1].Equals("neutral")
+                                            )
                                         {
                                             tempoturnsAI.Add(turnsAI[i]);
                                         }
-                                        lampa = 0;
                                     }                                    
                                     else if (turnsAI[i][1] == 0)
                                     {
