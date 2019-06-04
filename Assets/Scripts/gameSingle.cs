@@ -1025,7 +1025,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1046,7 +1046,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1070,7 +1070,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1087,7 +1087,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1457,7 +1457,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1478,7 +1478,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1502,7 +1502,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1519,7 +1519,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1889,7 +1889,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1910,7 +1910,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1934,7 +1934,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
@@ -1951,7 +1951,7 @@ public class gameSingle : MonoBehaviour
                                             {
                                                 lampa++;
                                             }
-                                            if (!neverField[i, j].Equals("second"))
+                                            if (neverField[i, j].Equals("neutral"))
                                             {
                                                 lampa++;
                                             }
