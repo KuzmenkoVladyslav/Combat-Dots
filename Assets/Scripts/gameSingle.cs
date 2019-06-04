@@ -32,6 +32,8 @@ public class gameSingle : MonoBehaviour
     int new_checking_sec = 0;
     int testing_auto_second = 0;
     int count_mf;
+    int test_before;
+    int test_after;
     private string lang, theme, modeMenu, modeCount, state = "", sound;
     private Text textFirst, textSecond;
     private GameObject newDot, tempoDot, newLine, newLine2;
@@ -956,8 +958,22 @@ public class gameSingle : MonoBehaviour
                         }
                     }
 
-                    for (int f = 0; f < 1000; f++)
+                    do
                     {
+                        test_before = 0;
+                        test_after = 0;
+
+                        for (int i = 0; i < neverField.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < neverField.GetLength(1); j++)
+                            {
+                                if (neverField[i, j].Equals("never"))
+                                {
+                                    test_before++;
+                                }
+                            }
+                        }
+
                         lampa = 0;
 
                         for (int i = 0; i < neverField.GetLength(0); i++)
@@ -1059,8 +1075,19 @@ public class gameSingle : MonoBehaviour
                                 }
                             }
                         }
-                    }
 
+                        for (int i = 0; i < neverField.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < neverField.GetLength(1); j++)
+                            {
+                                if (neverField[i, j].Equals("never"))
+                                {
+                                    test_after++;
+                                }
+                            }
+                        }
+                    }
+                    while (test_before != test_after);
 
                     for (int i = 0; i < turnsAI.Count; i++)
                     {
@@ -1397,8 +1424,22 @@ public class gameSingle : MonoBehaviour
                         }
                     }
 
-                    for (int f = 0; f < 1000; f++)
+                    do
                     {
+                        test_before = 0;
+                        test_after = 0;
+
+                        for (int i = 0; i < neverField.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < neverField.GetLength(1); j++)
+                            {
+                                if (neverField[i, j].Equals("never"))
+                                {
+                                    test_before++;
+                                }
+                            }
+                        }
+
                         lampa = 0;
 
                         for (int i = 0; i < neverField.GetLength(0); i++)
@@ -1500,7 +1541,19 @@ public class gameSingle : MonoBehaviour
                                 }
                             }
                         }
+
+                        for (int i = 0; i < neverField.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < neverField.GetLength(1); j++)
+                            {
+                                if (neverField[i, j].Equals("never"))
+                                {
+                                    test_after++;
+                                }
+                            }
+                        }
                     }
+                    while (test_before != test_after);
 
 
                     for (int i = 0; i < turnsAI.Count; i++)
@@ -1703,14 +1756,9 @@ public class gameSingle : MonoBehaviour
                     break;
 
                 case "VH":  
-
-                    //проверяю скок очков при автозаполнении принесёт этот ход при прибавлении первого уровня
+                    
                     virt_check = 0;
-
-                    //шоб ориентироваться какой щас элемент листа обрабатывается
                     counter_points = 0;
-
-                    //переменная для выбора максимального количества очков за ход при первом выборе
                     max_second_virtual_check = 0;
 
                     temp_virt = 0;
@@ -1719,15 +1767,12 @@ public class gameSingle : MonoBehaviour
                     {
                         for (int j = 0; j < gameField.GetLength(1); j++)
                         {
-                            //возможные ходы на главном поле
                             Maybe_second();
-                            //переношу возможные ходы и сделанные ходы с главного поля на первое виртуальное
                             Virtuality();
                             Second_Virtuality();
-                            //проверяю возможные ходы первого порядка на первом виртуальном поле
+
                             if (virtualField[i, j].Equals("maybe second"))
                             {
-                                //цикл для обработки одного конкретного возможного одинароного хода
                                 for (int p = 0; p < virtualField.GetLength(0); p++)
                                 {
                                     for (int o = 0; o < virtualField.GetLength(1); o++)
@@ -1739,22 +1784,16 @@ public class gameSingle : MonoBehaviour
                                     }
                                 }
 
-                                //в этом месте остался только один возможный одинарный ход
-
-                                //записываю координаты этого хода и очки которые он приносит сейчас
                                 turnsAI.Add(new int[3] { i, j, (points_second + 9 - j) });
 
                                 Neutraling();
 
-                                //меняю его состояние с мейби на тестинг
                                 virtualField[i, j] = "testing-second";
-                                //проверяю скок очков при автозаполнении принесёт этот ход
+
                                 virt_check = Checking_virtual(virtualField);
 
-                                //прибавляю эти очки
                                 turnsAI[counter_points][2] += virt_check;
 
-                                //ищу возможные ходы с секондами и тестируемой точкой 
                                 for (int q = 0; q < virtualField.GetLength(0); q++)
                                 {
                                     for (int w = 0; w < virtualField.GetLength(1); w++)
@@ -1802,7 +1841,6 @@ public class gameSingle : MonoBehaviour
                                             }
                                         }
 
-                                        //перехожу к третьему полю
                                         Second_Virtuality();
 
                                         if (virtualSecond[q, w].Equals("maybe second"))
@@ -1819,11 +1857,8 @@ public class gameSingle : MonoBehaviour
                                             }
 
                                             Neutraling();
-
                                             virtualSecond[q, w] = "testing-second";
-
                                             temp_virt = 0;
-
                                             temp_virt = Checking_virtual(virtualSecond);
 
                                             if (temp_virt > max_second_virtual_check)
@@ -1835,9 +1870,7 @@ public class gameSingle : MonoBehaviour
                                 }
 
                                 Neutraling();
-
                                 turnsAI[counter_points][2] += max_second_virtual_check;
-
                                 counter_points++;
                             }
                         }
@@ -1858,8 +1891,22 @@ public class gameSingle : MonoBehaviour
                         }
                     }
 
-                    for (int f = 0; f < 1000; f++)
+                    do
                     {
+                        test_before = 0;
+                        test_after = 0;
+
+                        for (int i = 0; i < neverField.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < neverField.GetLength(1); j++)
+                            {
+                                if (neverField[i, j].Equals("never"))
+                                {
+                                    test_before++;
+                                }
+                            }
+                        }
+
                         lampa = 0;
 
                         for (int i = 0; i < neverField.GetLength(0); i++)
@@ -1961,8 +2008,19 @@ public class gameSingle : MonoBehaviour
                                 }
                             }
                         }
-                    }
 
+                        for (int i = 0; i < neverField.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < neverField.GetLength(1); j++)
+                            {
+                                if (neverField[i, j].Equals("never"))
+                                {
+                                    test_after++;
+                                }
+                            }
+                        }
+                    }
+                    while (test_before != test_after);
 
                     for (int i = 0; i < turnsAI.Count; i++)
                     {
@@ -2293,6 +2351,7 @@ public class gameSingle : MonoBehaviour
             if (count_mf == 0)
             {
                 state = "SECOND TURN START";
+                TurnSecond();                
             }
         }
     }
@@ -5729,7 +5788,7 @@ public class gameSingle : MonoBehaviour
         TurnFirst();
         TurnSecond();
     }
-
+       
     private void Checking_first()
     {
         checking_fir = 0;

@@ -683,10 +683,10 @@ public class gameMulti : MonoBehaviour
                     }
                 }
             }
-
-            if (count_mf == 0)
+            else if (count_mf == 0)
             {
                 state = "SECOND TURN START";
+                TurnSecond();                
             }
         }        
     }
@@ -833,10 +833,10 @@ public class gameMulti : MonoBehaviour
                     }
                 }
             }
-
-            if (count_ms == 0)
+            else if (count_ms == 0)
             {
                 state = "FIRST TURN START";
+                TurnFirst();                
             }
         }        
     }
