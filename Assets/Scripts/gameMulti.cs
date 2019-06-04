@@ -100,178 +100,205 @@ public class gameMulti : MonoBehaviour
     {
         int dot_x = 0, dot_y = 0, dot_x2 = 0, dot_y2 = 0, rand_dot;
 
-        dot_x = Random.Range(0, 8);
-        dot_y = Random.Range(0, 8);
+        void Coordinates()
+        {           
+            dot_x = Random.Range(0, 8);
+            dot_y = Random.Range(0, 8);
 
-        if (dot_x == 0)
-        {
-            if (dot_y == 0)
+            if (dot_x == 0)
             {
-                rand_dot = Random.Range(0, 2);
-                if (rand_dot == 0)
+                if (dot_y == 0)
                 {
-                    dot_x2 = 1;
-                    dot_y2 = 0;
+                    rand_dot = Random.Range(0, 2);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = 1;
+                        dot_y2 = 0;
+                    }
+                    else
+                    {
+                        dot_x2 = 0;
+                        dot_y2 = 1;
+                    }
                 }
-                else
+                if (dot_y == 7)
                 {
-                    dot_x2 = 0;
-                    dot_y2 = 1;
+                    rand_dot = Random.Range(0, 2);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = 1;
+                        dot_y2 = 7;
+                    }
+                    else
+                    {
+                        dot_x2 = 0;
+                        dot_y2 = 6;
+                    }
+                }
+                if (dot_y != 0 && dot_y != 7)
+                {
+                    rand_dot = Random.Range(0, 3);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y - 1;
+                    }
+                    if (rand_dot == 1)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y + 1;
+                    }
+                    if (rand_dot == 2)
+                    {
+                        dot_x2 = dot_x + 1;
+                        dot_y2 = dot_y;
+                    }
                 }
             }
-            if (dot_y == 7)
+            if (dot_x == 7)
             {
-                rand_dot = Random.Range(0, 2);
-                if (rand_dot == 0)
+                if (dot_y == 0)
                 {
-                    dot_x2 = 1;
-                    dot_y2 = 7;
+                    rand_dot = Random.Range(0, 2);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = 6;
+                        dot_y2 = 0;
+                    }
+                    else
+                    {
+                        dot_x2 = 7;
+                        dot_y2 = 1;
+                    }
                 }
-                else
+                if (dot_y == 7)
                 {
-                    dot_x2 = 0;
-                    dot_y2 = 6;
+                    rand_dot = Random.Range(0, 2);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = 6;
+                        dot_y2 = 7;
+                    }
+                    else
+                    {
+                        dot_x2 = 7;
+                        dot_y2 = 6;
+                    }
+                }
+                if (dot_y != 0 && dot_y != 7)
+                {
+                    rand_dot = Random.Range(0, 3);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y - 1;
+                    }
+                    if (rand_dot == 1)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y + 1;
+                    }
+                    if (rand_dot == 2)
+                    {
+                        dot_x2 = dot_x - 1;
+                        dot_y2 = dot_y;
+                    }
                 }
             }
-            if (dot_y != 0 && dot_y != 7)
+            if (dot_x != 0 && dot_x != 7)
             {
-                rand_dot = Random.Range(0, 3);
-                if (rand_dot == 0)
+                if (dot_y == 0)
                 {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y - 1;
+                    rand_dot = Random.Range(0, 3);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y + 1;
+                    }
+                    if (rand_dot == 1)
+                    {
+                        dot_x2 = dot_x - 1;
+                        dot_y2 = dot_y;
+                    }
+                    if (rand_dot == 2)
+                    {
+                        dot_x2 = dot_x + 1;
+                        dot_y2 = dot_y;
+                    }
                 }
-                if (rand_dot == 1)
+                if (dot_y == 7)
                 {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y + 1;
+                    rand_dot = Random.Range(0, 3);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y - 1;
+                    }
+                    if (rand_dot == 1)
+                    {
+                        dot_x2 = dot_x - 1;
+                        dot_y2 = dot_y;
+                    }
+                    if (rand_dot == 2)
+                    {
+                        dot_x2 = dot_x + 1;
+                        dot_y2 = dot_y;
+                    }
                 }
-                if (rand_dot == 2)
+                if (dot_y != 0 && dot_y != 7)
                 {
-                    dot_x2 = dot_x + 1;
-                    dot_y2 = dot_y;
+                    rand_dot = Random.Range(0, 4);
+                    if (rand_dot == 0)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y - 1;
+                    }
+                    if (rand_dot == 1)
+                    {
+                        dot_x2 = dot_x;
+                        dot_y2 = dot_y + 1;
+                    }
+                    if (rand_dot == 2)
+                    {
+                        dot_x2 = dot_x - 1;
+                        dot_y2 = dot_y;
+                    }
+                    if (rand_dot == 3)
+                    {
+                        dot_x2 = dot_x + 1;
+                        dot_y2 = dot_y;
+                    }
                 }
             }
         }
-        if (dot_x == 7)
+
+        Coordinates();
+
+        if (lines.Count > 0)
         {
-            if (dot_y == 0)
+            if (dot_x == dot_x2)
             {
-                rand_dot = Random.Range(0, 2);
-                if (rand_dot == 0)
+                for (int i = 0; i < lines.Count; i++)
                 {
-                    dot_x2 = 6;
-                    dot_y2 = 0;
-                }
-                else
-                {
-                    dot_x2 = 7;
-                    dot_y2 = 1;
+                    if (lines[i][0] == dot_x)
+                    {
+                        Coordinates();
+                    }
                 }
             }
-            if (dot_y == 7)
+            else
             {
-                rand_dot = Random.Range(0, 2);
-                if (rand_dot == 0)
+                for (int i = 0; i < lines.Count; i++)
                 {
-                    dot_x2 = 6;
-                    dot_y2 = 7;
+                    if (lines[i][2] == dot_y)
+                    {
+                        Coordinates();
+                    }
                 }
-                else
-                {
-                    dot_x2 = 7;
-                    dot_y2 = 6;
-                }
-            }
-            if (dot_y != 0 && dot_y != 7)
-            {
-                rand_dot = Random.Range(0, 3);
-                if (rand_dot == 0)
-                {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y - 1;
-                }
-                if (rand_dot == 1)
-                {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y + 1;
-                }
-                if (rand_dot == 2)
-                {
-                    dot_x2 = dot_x - 1;
-                    dot_y2 = dot_y;
-                }
-            }
-        }
-        if (dot_x != 0 && dot_x != 7)
-        {
-            if (dot_y == 0)
-            {
-                rand_dot = Random.Range(0, 3);
-                if (rand_dot == 0)
-                {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y + 1;
-                }
-                if (rand_dot == 1)
-                {
-                    dot_x2 = dot_x - 1;
-                    dot_y2 = dot_y;
-                }
-                if (rand_dot == 2)
-                {
-                    dot_x2 = dot_x + 1;
-                    dot_y2 = dot_y;
-                }
-            }
-            if (dot_y == 7)
-            {
-                rand_dot = Random.Range(0, 3);
-                if (rand_dot == 0)
-                {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y - 1;
-                }
-                if (rand_dot == 1)
-                {
-                    dot_x2 = dot_x - 1;
-                    dot_y2 = dot_y;
-                }
-                if (rand_dot == 2)
-                {
-                    dot_x2 = dot_x + 1;
-                    dot_y2 = dot_y;
-                }
-            }
-            if (dot_y != 0 && dot_y != 7)
-            {
-                rand_dot = Random.Range(0, 4);
-                if (rand_dot == 0)
-                {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y - 1;
-                }
-                if (rand_dot == 1)
-                {
-                    dot_x2 = dot_x;
-                    dot_y2 = dot_y + 1;
-                }
-                if (rand_dot == 2)
-                {
-                    dot_x2 = dot_x - 1;
-                    dot_y2 = dot_y;
-                }
-                if (rand_dot == 3)
-                {
-                    dot_x2 = dot_x + 1;
-                    dot_y2 = dot_y;
-                }
-            }
+            }  
         }
 
         Creating_Line(dot_x, dot_x2, dot_y, dot_y2);
-
-        //print("1. " + dot_x + " " + dot_x2 + " " + dot_y + " " + dot_y2);
 
         lines.Add(new int[4] { dot_x, dot_x2, dot_y, dot_y2 });
 
@@ -292,7 +319,7 @@ public class gameMulti : MonoBehaviour
         }
 
         lines.Add(new int[4] { dot_x, dot_x2, dot_y, dot_y2 });
-        //print("2. " + dot_x + " " + dot_x2 + " " + dot_y + " " + dot_y2);
+
     }
 
     private void Creating_Line(int x1, int x2, int y1, int y2)

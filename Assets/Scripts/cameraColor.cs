@@ -20,6 +20,11 @@ public class cameraColor : MonoBehaviour
     {
         theme = PlayerPrefs.GetString("keyTheme");
 
+        if (!theme.Equals("light") && !theme.Equals("dark"))
+        {
+            theme = "light";
+        }
+
         if (theme == "light")
         {
             cam.backgroundColor = new Color32(173, 185, 204, 255);
